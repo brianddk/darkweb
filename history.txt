@@ -1,0 +1,97 @@
+ 1022  cd /usr/local/src/
+ 1023  wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
+ 1024  tar xf noip-duc-linux.tar.gz
+ 1025  cd noip-2.1.9-1/
+ 1026  make install
+ 1027  apt-get install make
+ 1028  apt-get install gcc
+ 1029  make install
+ 1030  less /usr/local/etc/no-ip2.conf 
+ 1031  cat /usr/local/etc/no-ip2.conf 
+ 1032  ls
+ 1033  cat debian.noip2.sh 
+ 1034  ls binaries/
+ 1035  ./binaries/noip2-x86_64 --help
+ 1036  ./binaries/noip2-x86_64 -s
+ 1037  ./binaries/noip2-x86_64 -S
+ 1038  ps -A
+ 1039  ps -A | grep ip
+ 1040  /usr/local/bin/noip2 
+ 1041  ps -A | grep ip
+ 1042  exit
+ 1043  sudo bash
+ 1044  mkdir webpage
+ 1045  cd webpage/
+ 1046  vi index.html
+ 1047  python -m SimpleHTTPServer 80
+ 1048  sudo python -m SimpleHTTPServer 8000
+ 1049  sudo python -m SimpleHTTPServer 80
+ 1050  sudo python -m SimpleHTTPServer 80 &
+ 1051  sudo apt-get lynx
+ 1052  sudo apt-get install lynx
+ 1053  lynx http://ubuntudvm.ddns.net
+ 1054  sudo shutdown
+ 1055  sudo shutdown -c
+ 1056  sudo shutdown "now"
+ 1057  noip2 
+ 1058  cd /usr/local/
+ 1059  cd ..
+ 1060  cd 
+ 1061  sudo noip2 
+ 1062  cd src
+ 1063  mkdir src
+ 1064  ls
+ 1065  cd src
+ 1066  ls
+ 1067  git clone https://github.com/brianddk/darkweb.git
+ 1068  cd darkweb/
+ 1069  ls
+ 1070  git log
+ 1071  git config --local user.email "brianddk@users.noreply.github.com"
+ 1072  git config --local user.name "brianddk"
+ 1073  ls
+ 1074  ruby --version
+ 1075  sudo apt-get install ruby
+ 1076  ruby --version
+ 1077  gem install bundler
+ 1078  sudo gem install bundler
+ 1079  ls
+ 1080  ls -l
+ 1081  cd docs
+ 1082  ls
+ 1083  vi source 'https://rubygems.org'
+ 1084  ls
+ 1085  vi Gemfile
+ 1086  ls
+ 1087  mv Gemfile ..
+ 1088  cd ..
+ 1089  ls
+ 1090  bundle install
+ 1091  sudo bundle install
+ 1092  bundle install
+ 1093  sudo apt-get install ruby-dev
+ 1094  bundle install
+ 1095  sudo bundle install
+ 1096  bundle install
+ 1097  sudo apt-get install g++
+ 1098  bundle install
+ 1099  sudo apt-get install zlib
+ 1100  apt-cache zlib
+ 1101  apt-cache search zlib
+ 1102  sudo apt-get install zlib1g-dev
+ 1103  bundle install
+ 1104  ls
+ 1105  vi .gitignore 
+ 1106  git status
+ 1107  rm Gemfile.lock 
+ 1108  bundle install
+ 1109  ls
+ 1110  vi .gitignore 
+ 1111  git status
+ 1112  history > history.txt
+ 1113  vi history.txt 
+ 1114  tail history.txt 
+ 1115  tail -100 history.txt 
+ 1116  tail -100 history.txt > history.txt 
+ 1117  vi history.txt 
+ 1118  history | tail -100 > history.txt 
