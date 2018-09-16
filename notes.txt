@@ -1,0 +1,60 @@
+https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/
+https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/
+https://jekyllrb.com/docs/
+https://help.github.com/articles/troubleshooting-custom-domains/
+https://medium.com/google-cloud/linux-gui-on-the-google-cloud-platform-800719ab27c5
+https://www.torproject.org/docs/tor-onion-service.html.en
+
+sudo apt-get make gcc lynx ruby ruby-dev g++ zlib1g-dev
+
+sudo bash
+cd /usr/local/src/
+wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
+tar xf noip-duc-linux.tar.gz
+cd noip-2.1.9-1/
+/usr/local/bin/noip2
+make install
+noip2
+# exit sudo
+
+git clone https://github.com/brianddk/darkweb.git darkweb
+cd darkweb/
+git config --local user.email "brianddk@users.noreply.github.com"
+git config --local user.name "brianddk"
+git checkout -b gh-pages
+git push -u origin gh-pages
+cd ..
+jekyll new darkweb
+git commit -a -m "jekyll pages"
+
+sudo apt-get install tightvncserver xfce4 xfce4-goodies
+vncpasswd
+vncserver
+ubuntudvm.ddns.net::5901
+
+sudo apt-get tor torbrowser-launcher
+
+sudo bundle exec jekyll serve -P 80 -H $HOSTNAME &
+sudo bundle exec jekyll serve &
+   HiddenServiceDir /var/lib/tor/hidden_service/
+   HiddenServicePort 80 127.0.0.1:7158
+http://givgwxolxzvfz47o.onion
+
+sudo apt-add-repository ppa:i2p-maintainers/i2p
+sudo apt-get update
+sudo apt-get install i2p
+sudo i2prouter install
+sudo dpkg-reconfigure i2p
+ps -A | grep i2p
+
+http://127.0.0.1:7657
+http://wpsw5eon3ecsys5pe4whbbetga6znznmiiwwynhp37qdlxxcqwca.b32.i2p/
+http://ubuntudvm.i2p/
+
+#!/bin/bash
+sudo noip2
+sudo swapon /mnt/2GB.swap
+cd ~/src/darkweb/
+sudo bundle exec jekyll serve -P 80 -H $HOSTNAME -d /var/lib/i2p/i2p-config/eepsite/docroot --detach
+vncserver
+
