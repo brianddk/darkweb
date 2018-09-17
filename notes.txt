@@ -7,6 +7,7 @@ https://www.torproject.org/docs/tor-onion-service.html.en
 http://www.privoxy.org/faq/misc.html#TOR
 https://freenetproject.org/pages/documentation.html#jsite
 https://wiki.debian.org/Seamonkey
+https://cloud.google.com/monitoring/quickstart-lamp
 
 sudo apt-get make gcc lynx ruby ruby-dev g++ zlib1g-dev
 
