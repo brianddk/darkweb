@@ -70,10 +70,10 @@ lynx http://githubdarkweb.ddns.net/
 # Test Jekyll server with noip DynDNS record through lynx
 lynx http://ubuntudvm.ddns.net/
 # Test Tor with lynx through privoxy
-http_proxy=http://127.0.0.1:8118 lynx http://givgwxolxzvfz47o.onion/
+http_proxy="http://127.0.0.1:8118" no_proxy="127.0.0.1" lynx http://givgwxolxzvfz47o.onion/
 # Test I2P b32 address with lynx
-http_proxy=http://127.0.0.1:4444 lynx http://wpsw5eon3ecsys5pe4whbbetga6znznmiiwwynhp37qdlxxcqwca.b32.i2p/
+http_proxy="http://127.0.0.1:4444" no_proxy="127.0.0.1" lynx http://wpsw5eon3ecsys5pe4whbbetga6znznmiiwwynhp37qdlxxcqwca.b32.i2p/
 # Test I2P .i2p address with lynx
-http_proxy=http://127.0.0.1:4444 lynx http://ubuntudvm.i2p/
+http_proxy="http://127.0.0.1:4444" no_proxy="127.0.0.1" lynx http://ubuntudvm.i2p/
 # Test freenet address with lynx
 lynx "http://127.0.0.1:8888/freenet:USK@l2noVVAqM~NXhqtGhgI-QLQu17kVLEAnfbDXZUdAGZY,T2lsi-RQpt9TsBnJHhIv~K1AYMlpCy9NsxgnutR4gus,AQACAAE/darkweb/-1/"
