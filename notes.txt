@@ -11,6 +11,18 @@ https://cloud.google.com/monitoring/quickstart-lamp
 
 sudo apt-get make gcc lynx ruby ruby-dev g++ zlib1g-dev
 
+# cygwin gh-pages install
+cyg-get ruby ruby-devel make gcc-core gcc-g++ zlib zlib-devel libiconv-devel libxml++2 libxml2-devel libxml++2-devel libxml2 libxslt
+# in cygwin
+   mkdir ruby.tmp
+   cd ruby.tmp
+   PATH="$PATH:$HOME/bin"                               
+   gem install bundler                                  
+   gem install pkg-config                               
+   bundle install                                       
+   bundle config build.nokogiri --use-system-libraries  
+# cygwin-end
+
 sudo bash
 cd /usr/local/src/
 wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
