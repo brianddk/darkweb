@@ -8,6 +8,7 @@ http://www.privoxy.org/faq/misc.html#TOR
 https://freenetproject.org/pages/documentation.html#jsite
 https://wiki.debian.org/Seamonkey
 https://cloud.google.com/monitoring/quickstart-lamp
+https://askubuntu.com/questions/695560/assistive-technology-not-found-awterror
 
 sudo apt-get make gcc lynx ruby ruby-dev g++ zlib1g-dev
 
