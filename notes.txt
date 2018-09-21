@@ -1,3 +1,6 @@
+gcloud compute instances create --async --zone=us-central1-c --machine-type=f1-micro --preemptible --metadata=serial-port-enable=1 --image-family=ubuntu-1804-lts --image-project=ubuntu-os-cloud --create-disk=name=dwblog-dsk dwblog
+
+
 https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/
 https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/
 https://jekyllrb.com/docs/
@@ -8,6 +11,9 @@ http://www.privoxy.org/faq/misc.html#TOR
 https://freenetproject.org/pages/documentation.html#jsite
 https://wiki.debian.org/Seamonkey
 https://cloud.google.com/monitoring/quickstart-lamp
+
+https://github.com/freenet/wiki/wiki
+
 
 sudo apt-get make gcc lynx ruby ruby-dev g++ zlib1g-dev
 
@@ -23,26 +29,67 @@ cyg-get ruby ruby-devel make gcc-core gcc-g++ zlib zlib-devel libiconv-devel lib
    bundle config build.nokogiri --use-system-libraries  
 # cygwin-end
 
+### Installing VM
+gcloud compute instances create --async --zone=us-central1-c --machine-type=f1-micro --preemptible --metadata=serial-port-enable=1 --image-family=ubuntu-1804-lts --image-project=ubuntu-os-cloud --create-disk=name=dwblog-dsk dwblog
+
+### Installing DyDNS
+https://www.noip.com/support/knowledgebase/installing-the-linux-dynamic-update-client/
+sudo apt-get update
+sudo apt-get install make gcc g++ zlib1g-dev
 sudo bash
 cd /usr/local/src/
 wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
 tar xf noip-duc-linux.tar.gz
 cd noip-2.1.9-1/
-/usr/local/bin/noip2
+# /usr/local/bin/noip2
 make install
 noip2
 # exit sudo
 
-git clone https://github.com/brianddk/darkweb.git darkweb
-cd darkweb/
-git config --local user.email "brianddk@users.noreply.github.com"
-git config --local user.name "brianddk"
+### Creating Website
+
+https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/
+# Create Repo
+https://github.com/new
+[x] Initialize with readme
+.gitignore='Ruby'
+License=Apache
+# goto repo Url
+click "clone or download"
+click https
+click copy
+# goto shell
+mkdir src
+cd src
+git clone https://github.com/{userid}/dwblog.git
+cd dwblog
+git config --local user.email "{userid}@users.noreply.github.com"
+git config --local user.name "{userid}"
 git checkout -b gh-pages
 git push -u origin gh-pages
+sudo apt-get install lynx ruby ruby-dev
+ruby --version
+sudo gem install bundler
+vi Gemfile
+   source 'https://rubygems.org'
+   gem 'github-pages', group: :jekyll_plugins
+
+bundle install
+rm *
 cd ..
-jekyll new darkweb
-cd darkweb
-git commit -a -m "jekyll pages"
+jekyll new dwblog
+cd dwblog
+vi Gemfile
+   -> # gem "jekyll", "~> 3.7.4"
+   -> gem "github-pages", group: :jekyll_plugins
+bundle update
+bundle install
+bundle exec jekyll serve --detach
+lynx http://127.0.0.1:4000
+git add -A
+git commit -a -m "Jekyll Pages"
+
+
 
 sudo apt-get install tightvncserver xfce4 xfce4-goodies
 vncpasswd
