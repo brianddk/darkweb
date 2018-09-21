@@ -15,13 +15,22 @@ On the other-hand, self-hosting your content gives you all the flexibility you n
 
 The first few steps will be to make content available on the clearnet.  This will make your information available on the normal internet using the normal tools.  You may choose to only host on the clearnet, or only host on the darknet.  For this experiment I'm hosting on both.
 
-#### Generating a Site
-
-Before the question of how to host it gets settled, first we have to decide how to generate the content.  There are multiple options of site builders to choose from.  I choose [**Jekyll**](https://jekyllrb.com/) because it is included in [Github Pages](https://pages.github.com/), and seems the simplest of the most popular solutions.
-
 #### Create a VM
 
 Hosting a website on anything other than a dedicated web-server is probably not a good idea.  Especially if you open the site up to the web at large.  So in an attempt to find a cheep I choose [**Google Compute Engine**](https://cloud.google.com/compute/).  If you are using the `f1-micro` preemptible image, you can usually stay pretty close to the [always free](https://cloud.google.com/free/docs/always-free-usage-limits) usage limits.  I tend to run a few things on GCE, but my bills are usually only a dollar or two every other month or so.  If you end up with a site that you want 24x7 up-time there are likely some plans from [discount providers](http://www.servermom.org/low-end-cloud-server-providers/) at around $5 / mo.
+
+If you choose GCE, simply [install the sdk](https://cloud.google.com/sdk/install) then run the following, where `{zone}`, `{disk-name}`, and `{vm-name}` are chosen by you.
+
+```
+gcloud config set compute/zone {zone}
+gcloud compute instances create --machine-type=f1-micro --preemptible --image-family=ubuntu-1804-lts --image-project=ubuntu-os-cloud --create-disk=name={disk-name} {vmname}
+```
+
+#### Generating a Site
+
+There are multiple options of site builders to choose from.  I choose [**Jekyll**](https://jekyllrb.com/) because it is included in [Github Pages](https://pages.github.com/), and seems the simplest of the most popular solutions.
+
+* [Creating A Jekyll Site]({{ site.baseurl }}{% post_url 2018-09-21-create-jekyll-site %})
 
 #### Choose a Web-server
 
