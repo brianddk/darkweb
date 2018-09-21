@@ -11,6 +11,7 @@ http://www.privoxy.org/faq/misc.html#TOR
 https://freenetproject.org/pages/documentation.html#jsite
 https://wiki.debian.org/Seamonkey
 https://cloud.google.com/monitoring/quickstart-lamp
+https://askubuntu.com/questions/695560/assistive-technology-not-found-awterror
 
 https://github.com/freenet/wiki/wiki
 
@@ -24,9 +25,10 @@ cyg-get ruby ruby-devel make gcc-core gcc-g++ zlib zlib-devel libiconv-devel lib
    cd ruby.tmp
    PATH="$PATH:$HOME/bin"                               
    gem install bundler                                  
+   bundle config build.nokogiri --use-system-libraries
    gem install pkg-config                               
    bundle install                                       
-   bundle config build.nokogiri --use-system-libraries  
+   vi Gemfile # add 'gem "bigdecimal", "~> 1.3.5"'
 # cygwin-end
 
 ### Installing VM
@@ -36,6 +38,9 @@ gcloud compute instances create --async --zone=us-central1-c --machine-type=f1-m
 https://www.noip.com/support/knowledgebase/installing-the-linux-dynamic-update-client/
 sudo apt-get update
 sudo apt-get install make gcc g++ zlib1g-dev
+
+====
+
 sudo bash
 cd /usr/local/src/
 wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
