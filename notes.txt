@@ -14,7 +14,17 @@ https://cloud.google.com/monitoring/quickstart-lamp
 https://askubuntu.com/questions/695560/assistive-technology-not-found-awterror
 
 https://github.com/freenet/wiki/wiki
+https://devhints.io/jekyll
 
+sudo -- sh -c 'umask 0027; bundle exec jekyll build -d /var/www/html'
+sudo chown -R root:www-data /var/www/html
+sudo chmod -R o-rwx /var/www/html
+sudo chmod -R g-w /var/www/html
+
+# Lets Encrypt for SSL
+https://certbot.eff.org/lets-encrypt/ubuntubionic-other.html
+https://www.itzgeek.com/how-tos/linux/how-to-configure-lets-encrypt-ssl-in-lighttpd-server.html
+https://github.com/galeone/letsencrypt-lighttpd/blob/master/README.md
 
 sudo apt-get make gcc lynx ruby ruby-dev g++ zlib1g-dev
 
@@ -35,6 +45,7 @@ cyg-get ruby ruby-devel make gcc-core gcc-g++ zlib zlib-devel libiconv-devel lib
 gcloud compute instances create --async --zone=us-central1-c --machine-type=f1-micro --preemptible --metadata=serial-port-enable=1 --image-family=ubuntu-1804-lts --image-project=ubuntu-os-cloud --create-disk=name=dwblog-dsk dwblog
 
 ### Installing DyDNS
+https://gist.github.com/NathanGiesbrecht/da6560f21e55178bcea7fdd9ca2e39b5
 https://www.noip.com/support/knowledgebase/installing-the-linux-dynamic-update-client/
 sudo apt-get update
 sudo apt-get install make gcc g++ zlib1g-dev
