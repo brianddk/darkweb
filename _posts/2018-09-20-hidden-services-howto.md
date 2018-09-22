@@ -19,7 +19,7 @@ The first few steps will be to make content available on the clearnet.  This wil
 
 Hosting a website on anything other than a dedicated web-server is probably not a good idea.  Especially if you open the site up to the web at large.  So in an attempt to find a cheep I choose [**Google Compute Engine**](https://cloud.google.com/compute/).  If you are using the `f1-micro` preemptible image, you can usually stay pretty close to the [always free](https://cloud.google.com/free/docs/always-free-usage-limits) usage limits.  I tend to run a few things on GCE, but my bills are usually only a dollar or two every other month or so.  If you end up with a site that you want 24x7 up-time there are likely some plans from [discount providers](http://www.servermom.org/low-end-cloud-server-providers/) at around $5 / mo.
 
-* [Creating A GCE VM]({{ site.baseurl }}{% post_url 2018-09-21-create-gce-vm %}) - A more detailed Jekyll walk through.
+* [Creating A GCE VM]({{ site.baseurl }}{% post_url 2018-09-21-create-gce-vm %}) - Setting up `f1-micro` GCE instances.
 
 #### Generating a Site
 
@@ -31,9 +31,13 @@ There are multiple options of site builders to choose from.  I choose [**Jekyll*
 
 Originally I glossed over this piece, but shortly after hosting I noticed some really weird intrusion probing on my site and decided to rebuild from scratch.  Opinions on which server software to run will vary wildly, but I'm going to try [**`lighttpd`**](https://www.lighttpd.net/) for the task.  Key take away is that it has to have a small footprint and be secure enough that our VM doesn't get overrun.
 
+* [Installing Lighttpd Service]({{ site.baseurl }}{% post_url 2018-09-22-install-lighttpd %}) - How to install Lighttpd server.
+
 #### Choose a DynDNS
 
 This allows us to pick a site-name and dynamically update the IP address as our instance moves.  I know there are a few services out there, but I happened upon [**`noip`**](https://www.noip.com/) and have been pretty happy with it.  It gives me three records.  I use one for the Github Hosted page, one for my self-hosted page, and I have not yet figured out what to do with the third.
+
+* [Installing NoIP Service]({{ site.baseurl }}{% post_url 2018-09-22-install-noip %}) - How to install noip as a service.
 
 #### Configure Up-time Monitor
 

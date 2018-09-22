@@ -74,3 +74,5 @@ git commit -a -m "Jekyll Pages"
 git push -u origin gh-pages
 ```
 
+#### Further Tasks
+* [Set up DynDNS on Github Pages](https://help.github.com/articles/troubleshooting-custom-domains/)
