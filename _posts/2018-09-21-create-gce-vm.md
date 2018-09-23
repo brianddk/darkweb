@@ -15,3 +15,14 @@ gcloud compute instances create \
  --preemptible {vm-name}
 gcloud compute ssh {vm-name}
 ```
+
+Once your VM is running, you might want to consider adding some cache.  You won't need it for the clearnet config, but you will need it as you start to set up some of the darknet services.  I'd suggest you simply follow [this procedure](https://www.tecmint.com/create-a-linux-swap-file/) to set a swap file instead of a partition for simplicity.
+
+```
+sudo fallocate --length 2GiB /var/swapfile
+sudo chmod 600 /var/swapfile
+sudo mkswap /var/swapfile
+sudo swapon /var/swapfile
+sudo vi /etc/fstab # add the following line
+   /var/swapfile swap swap defaults 0 0
+```

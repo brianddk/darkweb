@@ -82,12 +82,16 @@ server.max-fds              = 64
 
 ```
 
+Finally if your satisfied with your content, you can open up port 80 on your GCE vm to start servering the site with the [following `gcloud` command](https://cloud.google.com/vpc/docs/add-remove-network-tags#adding_and_removing_tags)
+
+```
+gcloud config set compute/zone {zone}
+gcloud compute instances add-tags {vm-name} --tags "http-server"
+```
 #### Further tasks
 To finish your clearnet site, you will want to
 
-1. Open port 80 to serve your site via gcloud api
-<!-- https://cloud.google.com/vpc/docs/add-remove-network-tags#adding_and_removing_tags -->
-2. Get an SSL cert
-3. Roll out your SSL cert and [move site to port 443](https://redmine.lighttpd.net/projects/1/wiki/HowToRedirectHttpToHttps)
+1. Get an SSL cert
+2. Roll out your SSL cert and [move site to port 443](https://redmine.lighttpd.net/projects/1/wiki/HowToRedirectHttpToHttps)
 
 <!-- todo: spell out HW-->
