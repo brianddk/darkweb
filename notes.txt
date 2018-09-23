@@ -1,3 +1,7 @@
+Questions:
+* Freenet WoT -vs- GPG WoT, can one import the other?
+
+
 gcloud compute instances create --async --zone=us-central1-c --machine-type=f1-micro --preemptible --metadata=serial-port-enable=1 --image-family=ubuntu-1804-lts --image-project=ubuntu-os-cloud --create-disk=name=dwblog-dsk dwblog
 
 
@@ -15,6 +19,8 @@ https://askubuntu.com/questions/695560/assistive-technology-not-found-awterror
 
 https://github.com/freenet/wiki/wiki
 https://devhints.io/jekyll
+
+https://www.tecmint.com/create-a-linux-swap-file/
 
 sudo -- sh -c 'umask 0027; bundle exec jekyll build -d /var/www/html'
 sudo chown -R root:www-data /var/www/html
