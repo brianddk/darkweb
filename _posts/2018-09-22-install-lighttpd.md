@@ -56,10 +56,37 @@ git commit -m "automated our site build"
 git push
 ```
 
+To turn on an access log, you will want to enable the module and the configuration option
+```
+server.modules = (
+        ...
+        "mod_accesslog",
+        ...
+)
+
+accesslog.filename          = "/var/log/lighttpd/access.log"
+```
+
+To enable our Jekyll 404 message, add the following...
+```
+server.error-handler-404    = "/404.html"
+```
+
+Since we are running on a **very** small instance, I made the following changes to reduce the server load
+```
+server.max-request-size     = 65536
+server.max-write-idle       = 30
+server.max-read-idle        = 10
+server.max-connections      = 32
+server.max-fds              = 64
+
+```
+
 #### Further tasks
 To finish your clearnet site, you will want to
 
-1. Open port 80 to serve your site
+1. Open port 80 to serve your site via gcloud api
+<!-- https://cloud.google.com/vpc/docs/add-remove-network-tags#adding_and_removing_tags -->
 2. Get an SSL cert
 3. Roll out your SSL cert and [move site to port 443](https://redmine.lighttpd.net/projects/1/wiki/HowToRedirectHttpToHttps)
 

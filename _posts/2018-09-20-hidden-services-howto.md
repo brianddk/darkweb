@@ -41,7 +41,11 @@ This allows us to pick a site-name and dynamically update the IP address as our 
 
 #### Configure Up-time Monitor
 
-If you are using the GCE always-free tier, you will likely want an up-time monitor to determine when your instance preempts.  I was pleased to see that GCE [integrates Stackdriver](https://cloud.google.com/monitoring/quickstart-lamp) to allow up to now recieve notifications when you are preempted.  You can even restart your instances via the [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.cloudconsole) or [iOS](https://itunes.apple.com/us/app/google-cloud-console/id1005120814/iTunes?mt=8).
+If you are using the GCE always-free tier, you will likely want an up-time monitor to determine when your instance preempts.  I was pleased to see that GCE integrates Stackdriver to allow up to now receive notifications when you are preempted.  You can even restart your instances via the [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.cloudconsole) or [iOS](https://itunes.apple.com/us/app/google-cloud-console/id1005120814/iTunes?mt=8).
+
+* [Configure GCE Up-time Monitor](https://cloud.google.com/monitoring/quickstart-lamp) - Step by step guide with Stackdriver.
+
+<!-- todo: show swap setup @ https://www.tecmint.com/create-a-linux-swap-file/ -->
 
 ## Darknet Setup
 
