@@ -152,7 +152,9 @@ lynx http://githubdarkweb.ddns.net/
 # Test Jekyll server with noip DynDNS record through lynx
 lynx http://ubuntudvm.ddns.net/
 # Test Tor with lynx through privoxy
-http_proxy="http://127.0.0.1:8118" no_proxy="127.0.0.1" lynx http://givgwxolxzvfz47o.onion/
+# new bithxedusrw236ji.onion
+# old givgwxolxzvfz47o.onion
+http_proxy="http://127.0.0.1:8118" no_proxy="127.0.0.1" lynx http://bithxedusrw236ji.onion/
 # View I2P Router Console with lynx
 http_proxy="http://127.0.0.1:4444" no_proxy="127.0.0.1" lynx http://127.0.0.1:7657
 # View I2P Web Server (localhost) with lynx
