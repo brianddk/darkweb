@@ -21,10 +21,11 @@ umask 027 # to apply to current session
 Now we can create a build script for our site.  Go to the directory your Jekyll code is in and create `sitebuild.sh` containing
 ```
 #!/bin/bash
-sudo -- sh -c 'umask 0027; bundle exec jekyll build -d /var/www/html'
-sudo chown -R root:www-data /var/www/html
-sudo chmod -R o-rwx /var/www/html
-sudo chmod -R g-w /var/www/html
+docroot="/var/www/html"
+sudo -- sh -c "umask 0027; bundle exec jekyll build -d $docroot"
+sudo chown -R i2psvc:www-data $docroot
+sudo chmod -R o-rwx $docroot
+sudo chmod -R g-w $docroot
 ```
 
 Hopefully this will ensure that none of your site files have any lingering read attributes that they should not.
@@ -56,7 +57,7 @@ git commit -m "automated our site build"
 git push
 ```
 
-To turn on an access log, you will want to enable the module and the configuration option
+To turn on an access log, you will want to enable the module and the configuration option in `/etc/lighttpd/lighttpd.conf`
 ```
 server.modules = (
         ...

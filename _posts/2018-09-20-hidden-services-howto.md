@@ -45,8 +45,6 @@ If you are using the GCE always-free tier, you will likely want an up-time monit
 
 * [Configure GCE Up-time Monitor](https://cloud.google.com/monitoring/quickstart-lamp) - Step by step guide with Stackdriver.
 
-<!-- todo: show swap setup @ https://www.tecmint.com/create-a-linux-swap-file/ -->
-
 ## Darknet Setup
 
 At this point your clearnet site should be up and running.  If you only want to host on the darknet, you can stop your web-server since it is only used for clearnet content currently.

@@ -26,3 +26,55 @@ sudo swapon /var/swapfile
 sudo vi /etc/fstab # add the following line
    /var/swapfile swap swap defaults 0 0
 ```
+
+Although not required, you might want to install a GUI desktop for some tasks that may come. Since we are running a **very** small memory footprint, we will [install xfce, TightVNC and dillo](https://medium.com/google-cloud/linux-gui-on-the-google-cloud-platform-800719ab27c5) which will give us a desktop, remote access and a web browser.
+```
+sudo apt-get install tightvncserver xfce4 xfce4-goodies dillo
+```
+
+Although Dillo is a good lightweight browser, [SeaMonkey](https://wiki.debian.org/Seamonkey) is by far much more capable.
+```
+sudo apt-get install dirmngr apt-transport-https
+sudo vi /etc/apt/sources.list # add the following
+   deb http://downloads.sourceforge.net/project/ubuntuzilla/mozilla/apt all main
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 2667CA5C
+sudo apt-get update
+sudo apt-get install seamonkey-mozilla-build
+```
+
+Now to set your VNC password.  Pick something random!  Having a guessable password will be **very** bad.
+```
+vncpasswd
+```
+
+To access your system remotely, you will need to SSH into the system then launch the VNC server, do your work and tear down the VNC server.  I would **not** recommend leaving the VNC server running as this is a **huge** security risk.  You will also need to pick a VNC client for [Windows](http://www.tightvnc.com/download.php), Linux or MacOS
+
+To make your system accessible remotely via VNC, we will have to punch another hole in the firewall using tcp:5901
+
+First, determine your laptop's IP address and only allow that source IP through...
+```
+curl -s https://api.myip.com/
+```
+
+Next, create a firewall and add it to your VM.
+```
+gcloud compute firewall-rules create vnc-server \
+ --target-tags=vnc-server \
+ --allow=tcp:5901 \
+ --source-ranges={your-ip}/32
+gcloud compute instances add-tags {vm-name} --tags "vnc-server"
+```
+
+Now you should be able to connect to your via VNC using the hostname you registered with noip.com and port 5901
+```
+vnc NoIpHostName.tld.dom::5901
+```
+
+When your done in the VNC session, close all the GUI apps, then from a shell run
+```
+vncserver -kill :1
+```
+
+For future sessions, make sure to update your IP address in the `vnc-server` firewall rule.
+
+<!-- todo: cut-paste https://askubuntu.com/questions/645176/editing-vnc-xstartup-to-launch-xfce-on-vnc-server -->
