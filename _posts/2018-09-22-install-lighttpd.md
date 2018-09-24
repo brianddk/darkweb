@@ -23,7 +23,7 @@ Now we can create a build script for our site.  Go to the directory your Jekyll 
 #!/bin/bash
 docroot="/var/www/html"
 sudo -- sh -c "umask 0027; bundle exec jekyll build -d $docroot"
-sudo chown -R i2psvc:www-data $docroot
+sudo chown -R root:www-data $docroot
 sudo chmod -R o-rwx $docroot
 sudo chmod -R g-w $docroot
 ```

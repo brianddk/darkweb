@@ -55,22 +55,13 @@ The darknet services will run something similar to a web-server, but for vary sp
 
 Although Tor is more popular, I set up [**I2P**](https://geti2p.net/) first since it serves content by default.  I'll use the I2P web server to serve on Tor as well.  There are many [comparisons](https://www.makeuseof.com/tag/i2p-vs-tor-vs-vpn-secure/) of I2P and Tor if your interested.  The basic difference I see is that I2P is peer-to-peer.  All browsers are also relays (if their ports are open).  This is similar to how bitcoin or bittorrent networks work.  Tor on the other hand seems to have separate "participants" and "maintainers" or relays.  If your using Debian, a [pre-packaged](https://geti2p.net/el/download/debian) installer is available.  Once installed, it is polite to open the I2P ports so that your node can contribute to the network.  Keep in mind that this will count against your VM's bandwidth quota, so it is something you will want to keep an eye on.
 
+* [Installing I2P Service]({{ site.baseurl }}{% post_url 2018-09-23-install-i2p %}) - How to install the I2P service.
+
 #### Tor
 
 By far the most popular darknet protocol, [**Tor**](https://www.torproject.org/) has an integrated and hardened browser as well as the tor service / proxy.  I deviated about from the normal install instructions and did everything through `apt`
 
-```
-sudo apt-get tor torbrowser-launcher
-```
-
-To host a hidden service in tor, simply add the following lines to your `torrc`
-
-```
-   HiddenServiceDir /var/lib/tor/hidden_service/
-   HiddenServicePort 80 127.0.0.1:7158
-```
-
-Once done and restarted, Tor will serve the content that is being served up by I2P.
+* [Installing Tor Service/Browser]({{ site.baseurl }}{% post_url 2018-09-23-install-i2p %}) - How to install the TOR service and browser.
 
 #### Freenet
 
