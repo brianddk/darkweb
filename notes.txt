@@ -158,6 +158,7 @@ http_proxy="http://127.0.0.1:4444" no_proxy="127.0.0.1" lynx http://127.0.0.1:76
 # View I2P Web Server (localhost) with lynx
 http_proxy="http://127.0.0.1:4444" no_proxy="127.0.0.1" lynx http://127.0.0.1:7658
 # Test I2P b32 address with lynx
+# http://lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma.b32.i2p/
 http_proxy="http://127.0.0.1:4444" no_proxy="127.0.0.1" lynx http://wpsw5eon3ecsys5pe4whbbetga6znznmiiwwynhp37qdlxxcqwca.b32.i2p/
 # Test I2P .i2p address with lynx
 http_proxy="http://127.0.0.1:4444" no_proxy="127.0.0.1" lynx http://ubuntudvm.i2p/
