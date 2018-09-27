@@ -39,6 +39,7 @@ plugins:
 # to override the default setting.
 exclude:
   - sitebuild.sh
+  - CNAME
   - Gemfile
   - Gemfile.lock
   - node_modules
