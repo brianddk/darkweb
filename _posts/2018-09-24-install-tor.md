@@ -14,7 +14,7 @@ http://www.privoxy.org/faq/misc.html#TOR
 
 In Ubuntu, you can install both the [TOR service](https://www.torproject.org/docs/debian.html.en) and the [TOR Browser (launcher)](https://wiki.debian.org/TorBrowser#Introduction).  The launcher script is a simpler way to install the browser with all the updates.
 
-```
+```bash
 sudo apt-get install tor torbrowser-launcher
 ```
 
@@ -27,7 +27,7 @@ Since we are hosting a Blog, we can mirror it on TOR
 
 Once done and restarted, Tor will serve the content that is being served up by `lighttpd`.  To find your onion address, enter the following:
 
-```
+```bash
 sudo cat /var/lib/tor/hidden_service/hostname
 ```
 
@@ -44,7 +44,7 @@ sudo vi /etc/privoxy/config # uncomment the following
 ```
 
 As a quick test to see if it's working, you can try the following with various browsers.  Good onions would be the one harvested from the `hostname` file above, or the TorProject's offical onion of [expyuzz4wqqyqhjn.onion](http://expyuzz4wqqyqhjn.onion/)
-```
+```bash
 # Pick the browser you want...
 # browser="seamonkey"
 # browser="dillo"

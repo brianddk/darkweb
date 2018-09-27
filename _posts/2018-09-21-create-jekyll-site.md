@@ -10,7 +10,7 @@ To start, just follow the [github instructions](https://help.github.com/articles
 
 #### Install dependencies
 
-```
+```bash
 sudo apt-get make gcc lynx ruby ruby-dev g++ zlib1g-dev
 sudo gem install bundler
 ```
@@ -27,7 +27,7 @@ sudo gem install bundler
 #### Create the branch
 
 From the shell perform the following to checkout the repo and create a `gh-pages` branch
-```
+```bash
 mkdir ~/src
 cd ~/src
 git clone https://github.com/{userid}/{jksite}.git
@@ -38,7 +38,7 @@ git checkout -b gh-pages
 ```
 
 #### Install Jekyll
-```
+```bash
 sudo apt-get install make gcc g++ zlib1g-dev ruby ruby-dev lynx
 ruby --version
 sudo gem install bundler
@@ -49,7 +49,7 @@ bundle install
 ```
 
 #### Create Jekyll site
-```
+```bash
 cd ~/src
 jekyll new {jksite}
 cd {jksite}
@@ -61,14 +61,14 @@ bundle install
 ```
 
 #### Test the site
-```
+```bash
 bundle exec jekyll serve &
 lynx http://127.0.0.1:4000
 kill %1
 ```
 
 #### Push back to repo
-```
+```bash
 git add -A
 git commit -a -m "Jekyll Pages"
 git push -u origin gh-pages

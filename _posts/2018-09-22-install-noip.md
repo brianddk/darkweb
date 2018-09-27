@@ -13,7 +13,7 @@ Installing the NoIP Client will allow your system to update your DNS entry with 
 * Create a DynDNS entry
 
 Now you can download and set up the client
-```
+```bash
 sudo apt-get update
 sudo apt-get install make gcc g++ zlib1g-dev
 sudo bash
@@ -30,14 +30,14 @@ exit # exit sudo
 Now the client is setup, but you still need to set it up as a service.  Someone created a gist for this purpose.
 
 First ensure that if NoIP is running, we terminate it.
-```
+```bash
 sudo noip2 -S
 # copy the process number from the output
 sudo noip2 -K {process_num} # use the process number from above
 ```
 
 Next install the service, enable it, and start it.
-```
+```bash
 cd ~/src
 repo=https://gist.github.com/NathanGiesbrecht/da6560f21e55178bcea7fdd9ca2e39b5
 git clone $repo noip.svc

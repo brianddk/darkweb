@@ -6,12 +6,12 @@ date:   2018-09-22 12:00:00 -0500
 ---
 
 Since `lighttpd` is a maintained package, just follow the Ubuntu [install instructions](https://help.ubuntu.com/community/lighttpd).
-```
+```bash
 sudo apt-get install lighttpd
 ```
 
 Once installed, you may want to tighten security a bit.
-```
+```bash
 cd ~
 vi .profile
 # change umask to 027 and save
@@ -19,7 +19,7 @@ umask 027 # to apply to current session
 ```
 
 Now we can create a build script for our site.  Go to the directory your Jekyll code is in and create `sitebuild.sh` containing
-```
+```bash
 #!/bin/bash
 docroot="/var/www/html"
 sudo -- sh -c "umask 0027; bundle exec jekyll build -d $docroot"
@@ -44,14 +44,14 @@ exclude:
 ```
 
 Now we can build our site and test it
-```
+```bash
 chmod u+x sitebuild.sh
 ./sitebuild.sh
 lynx localhost
 ```
 
 If your happy with the content, then we can commit the changes to github
-```
+```bash
 git add -A
 git commit -m "automated our site build"
 git push
@@ -85,7 +85,7 @@ server.max-fds              = 64
 
 Finally if your satisfied with your content, you can open up port 80 on your GCE vm to start servering the site with the [following `gcloud` command](https://cloud.google.com/vpc/docs/add-remove-network-tags#adding_and_removing_tags)
 
-```
+```bash
 gcloud config set compute/zone {zone}
 gcloud compute instances add-tags {vm-name} --tags "http-server"
 ```
