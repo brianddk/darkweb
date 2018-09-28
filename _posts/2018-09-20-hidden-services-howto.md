@@ -69,7 +69,7 @@ Of all the hidden services, I found [**Freenet**](https://freenetproject.org/) t
 
 Installation on the VM was a little weird on freenet as well.  Since I was trying to run as close to headless as possible, my JVM was throwing up some errors.  Luckily simply [disabling accessibility](https://askubuntu.com/questions/695560/assistive-technology-not-found-awterror) features seemed to do the trick.
 
-* [Installing Freenet / Upload Freesite]({{ site.baseurl }}{% post_url 2018-09-24-install-freenet %}) - How to install the TOR service and browser.
+* [Installing Freenet / Upload Freesite]({{ site.baseurl }}{% post_url 2018-09-24-install-freenet %}) - Install Freenet and upload Freesite.
 
 ## All Done
 
