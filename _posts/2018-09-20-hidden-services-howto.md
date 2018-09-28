@@ -61,13 +61,15 @@ Although Tor is more popular, I set up [**I2P**](https://geti2p.net/) first sinc
 
 By far the most popular darknet protocol, [**Tor**](https://www.torproject.org/) has an integrated and hardened browser as well as the tor service / proxy.  I deviated about from the normal install instructions and did everything through `apt`
 
-* [Installing Tor Service/Browser]({{ site.baseurl }}{% post_url 2018-09-23-install-i2p %}) - How to install the TOR service and browser.
+* [Installing Tor Service/Browser]({{ site.baseurl }}{% post_url 2018-09-24-install-tor %}) - How to install the TOR service and browser.
 
 #### Freenet
 
 Of all the hidden services, I found [**Freenet**](https://freenetproject.org/) to be the most interesting.  One of the coolest things about freenet is that the content (if popular) will stay on the network even if the site / server that created the content goes down.  Once content is on freenet it is mirrored and shared by all the nodes and propagated.
 
 Installation on the VM was a little weird on freenet as well.  Since I was trying to run as close to headless as possible, my JVM was throwing up some errors.  Luckily simply [disabling accessibility](https://askubuntu.com/questions/695560/assistive-technology-not-found-awterror) features seemed to do the trick.
+
+* [Installing Freenet / Upload Freesite]({{ site.baseurl }}{% post_url 2018-09-24-install-freenet %}) - How to install the TOR service and browser.
 
 ## All Done
 
