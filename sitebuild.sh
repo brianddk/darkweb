@@ -73,13 +73,13 @@ function validate_sm() {
    #for sm in $*; do
       uris="$(sed 's/xmlns=".*"//g' $sm | xmllint /dev/stdin --xpath '/urlset/url/loc' | sed 's#</loc>#\n#g;s#<loc>##g')"
       for uri in $uris; do
-         echo -e "---\n$uri]"
+         echo -e "---\n$uri"
 	 curl -s -vv "http://web.archive.org/save/${uri}" -o /dev/null 2>&1 | egrep "< HTTP|< Location:|< Content-Location:"
       done
    done
 }
 
 mk_sitemap
-#bld_docroot
+bld_docroot
 #upld_freesite
 #validate_sm
