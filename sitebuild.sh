@@ -50,11 +50,14 @@ function mk_sitemap() {
    uris=$(find _site -iname "*.html" | sed "s#/index.html#/#g;s#_site##g")
    uris=$(tr "\n" "\n" <<< "$uris")
    selfhost="$(sudo noip2 -S 2>&1 | grep host | awk '{print $2}')"
-   for sm in *.sitemap.xml; do
-      host="$(sed 's/\.sitemap\.xml//' <<< $sm)"
+   for line in $(egrep "^Sitemap:" robots.txt | awk '{print $2}'); do
+      IFS='/' read -r -a field <<< "$line"
+      proto="${field[0]}"
+      host="${field[2]}"
+      sm="${field[3]}"
       echo "$header" > "$sm"
       for uri in $uris; do
-         echo "<url><loc>http://${host}${uri}</loc></url>" >> "$sm"
+         echo "<url><loc>${proto}//${host}${uri}</loc></url>" >> "$sm"
          if [ "$host" = "$selfhost" ]; then
             for rd in $redirects; do
                echo "<url><loc>http://${host}/${rd}${uri}</loc></url>" >> "$sm"
@@ -76,7 +79,7 @@ function validate_sm() {
    done
 }
 
-#mk_sitemap
+mk_sitemap
 #bld_docroot
 #upld_freesite
-validate_sm
+#validate_sm
