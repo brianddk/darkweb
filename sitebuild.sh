@@ -13,8 +13,8 @@ function bld_docroot() {
    #sudo usermod -a -G www-i2psvc www-data
    #sudo usermod -a -G www-i2psvc i2psvc
    umask 0027
-   sudo chown root:www-i2psvc ${docroot}/..
-   sudo chown root:www-i2psvc ${docroot}
+   #sudo chown root:www-i2psvc ${docroot}/..
+   #sudo chown root:www-i2psvc ${docroot}
    sudo bundle exec jekyll build -d ${docroot}
    sudo chown -R root:www-data $docroot
    sudo chmod -R g+r,o-rwx,g-w $docroot
@@ -68,18 +68,20 @@ function mk_sitemap() {
    done
 }
 
-function validate_sm() {
-   for sm in *.sitemap.xml; do
-   #for sm in $*; do
-      uris="$(sed 's/xmlns=".*"//g' $sm | xmllint /dev/stdin --xpath '/urlset/url/loc' | sed 's#</loc>#\n#g;s#<loc>##g')"
-      for uri in $uris; do
-         echo -e "---\n$uri"
-	 curl -s -vv "http://web.archive.org/save/${uri}" -o /dev/null 2>&1 | egrep "< HTTP|< Location:|< Content-Location:"
+function update_wa() {
+   sudo rm /var/log/wa.log
+   sudo /etc/cron.daily/web-archive-update
+}
+
+function ping_seo() {
+   for uri in $(grep "^Sitemap:" robots.txt | awk '{print $2}'); do
+      for engine in "http://google.com/ping" "http://www.bing.com/ping"; do
+         curl -vv -s -o /dev/null --data-urlencode "sitemap=$uri" -G "$engine" 2>&1 | egrep "^> GET|^> Host:|^< HTTP"
       done
    done
 }
-
 mk_sitemap
 bld_docroot
+ping_seo
 #upld_freesite
-#validate_sm
+#update_wa
