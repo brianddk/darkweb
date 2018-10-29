@@ -1,10 +1,10 @@
 #!/bin/bash
 docroot="/var/www/html"
-jsite_conf="${HOME}/Downloads/jSite.conf"
-jsite_jar="${HOME}/Downloads/jSite-12-jSite-0.13-jar-with-dependencies.jar"
+eval jsite_conf="~freenet/jSite.conf"
+eval jsite_jar="~freenet/jSite-12-jSite-0.13-jar-with-dependencies.jar"
 
 function mk_env() {
-   sed 's#<#"\n#g;s#>#="#g;s#request-##g' $jsite_conf | \
+   sudo sed 's#<#"\n#g;s#>#="#g;s#request-##g' $jsite_conf | \
       grep "^uri\|^edition\|^path\|^name"
 }
 
@@ -26,7 +26,7 @@ function upld_freesite() {
    source <(mk_env)
    echo > _freenet.yml "baseurl: \"/USK@${uri}/${path}/$(( edition + 1 ))\""
    bundle exec jekyll build --config _config.yml,_freenet.yml
-   java -cp ${jsite_jar} \
+   sudo java -cp ${jsite_jar} \
       "de.todesbaum.jsite.main.CLI" \
       "--config-file=${jsite_conf}" \
       "--project=${name}"
@@ -49,16 +49,14 @@ function mk_sitemap() {
    bundle exec jekyll build
    uris=$(find _site -iname "*.html" | sed "s#/index.html#/#g;s#_site##g")
    uris=$(tr "\n" "\n" <<< "$uris")
-   selfhost="$(sudo noip2 -S 2>&1 | grep host | awk '{print $2}')"
+   #selfhost="$(sudo noip2 -S 2>&1 | grep host | awk '{print $2}')"
+   ghphost="dwghp.ddns.net"
    for line in $(egrep "^Sitemap:" robots.txt | awk '{print $2}'); do
-      IFS='/' read -r -a field <<< "$line"
-      proto="${field[0]}"
-      host="${field[2]}"
-      sm="${field[3]}"
+      IFS='/' read -r proto null host sm null <<< "$line"
       echo "$header" > "$sm"
       for uri in $uris; do
          echo "<url><loc>${proto}//${host}${uri}</loc></url>" >> "$sm"
-         if [ "$host" = "$selfhost" ]; then
+         if [ "$host" != "$ghphost" ]; then
             for rd in $redirects; do
                echo "<url><loc>http://${host}/${rd}${uri}</loc></url>" >> "$sm"
             done
@@ -80,8 +78,13 @@ function ping_seo() {
       done
    done
 }
-mk_sitemap
+echo "#### Building Sitemap"
+#mk_sitemap
+echo "#### Building Main"
 bld_docroot
+echo "#### Pinging SEO"
 ping_seo
+echo "#### Uploading Freesite"
 #upld_freesite
-#update_wa
+echo "#### Updating Web-Archive"
+update_wa
