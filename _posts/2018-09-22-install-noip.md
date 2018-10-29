@@ -7,12 +7,15 @@ date:   2018-09-22 12:01:00 -0500
 
 Installing the NoIP Client will allow your system to update your DNS entry with your assigned IP on each boot.  Simply follow the [install instructions](https://www.noip.com/support/knowledgebase/installing-the-linux-dynamic-update-client/) on the NoIP website.  The basic procedure is:
 
+#### Create a NoIP Account
+
 * Go to the [NoIP website](https://www.noip.com/) and create an account
 * Check your email for the verification and click the link.
 * Log out / Log in again and create a userid
 * Create a DynDNS entry
 
-Now you can download and set up the client
+#### Download / Setup Client
+
 ```bash
 sudo apt-get update
 sudo apt-get install make gcc g++ zlib1g-dev
@@ -26,6 +29,8 @@ make install
 noip2
 exit # exit sudo
 ```
+
+#### Configure NoIP service
 
 Now the client is setup, but you still need to set it up as a service.  Someone created a gist for this purpose.
 
@@ -47,3 +52,8 @@ sudo systemctl enable noip2
 sudo systemctl start noip2
 sudo systemctl status noip2
 ```
+
+#### Further tasks
+
+* Setup Github Pages with NoIP
+* Monitor for renewal emails every month

@@ -56,3 +56,7 @@ http_proxy="http://127.0.0.1:8118" \
 ```
 
 Keep in mind, beyond the quick test, you really do want to use the TorBrowser for better anonymity and security.
+<!--
+todo
+https://trac.torproject.org/projects/tor/wiki/TorRelayGuide#BackupTorIdentityKeys
+-->

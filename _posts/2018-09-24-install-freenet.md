@@ -134,6 +134,8 @@ The variables `jsite_conf`, and `jsite_jar`, in the script above, will need to b
 
 <!-- 
 
+add disable awt section!
+
 Freenet
    
 open ports in firewall

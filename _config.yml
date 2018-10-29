@@ -16,9 +16,7 @@
 title: Darkweb Blog
 # email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  A simple Jekyll generated blog to mirror on vairous darkweb services 
-  such as Freenet, I2P and Tor.  Started as a counter balance to the 
-  frighteningly rapid pace of de-platforming speech.
+  Tor, I2P, Freenet and Free-Speech.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb

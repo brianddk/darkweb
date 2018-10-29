@@ -5,10 +5,12 @@ date:   2018-09-22 12:00:00 -0500
 # categories: jekyll update
 ---
 
-Since `lighttpd` is a maintained package, just follow the Ubuntu [install instructions](https://help.ubuntu.com/community/lighttpd).
+Since `lighttpd` is a maintained package for Unbuntu, all we have to do is follow the Ubuntu [install instructions](https://help.ubuntu.com/community/lighttpd).
 ```bash
 sudo apt-get install lighttpd
 ```
+
+#### Security
 
 Once installed, you may want to tighten security a bit.
 ```bash
@@ -18,14 +20,15 @@ vi .profile
 umask 027 # to apply to current session
 ```
 
+#### Sitebuild Script
+
 Now we can create a build script for our site.  Go to the directory your Jekyll code is in and create `sitebuild.sh` containing
 ```bash
 #!/bin/bash
 docroot="/var/www/html"
 sudo -- sh -c "umask 0027; bundle exec jekyll build -d $docroot"
 sudo chown -R root:www-data $docroot
-sudo chmod -R o-rwx $docroot
-sudo chmod -R g-w $docroot
+sudo chmod -R o-rwx,g-w $docroot
 ```
 
 Hopefully this will ensure that none of your site files have any lingering read attributes that they should not.
@@ -57,6 +60,8 @@ git commit -m "automated our site build"
 git push
 ```
 
+#### Sweeten config
+
 To turn on an access log, you will want to enable the module and the configuration option in `/etc/lighttpd/lighttpd.conf`
 ```
 server.modules = (
@@ -83,16 +88,28 @@ server.max-fds              = 64
 
 ```
 
-Finally if your satisfied with your content, you can open up port 80 on your GCE vm to start servering the site with the [following `gcloud` command](https://cloud.google.com/vpc/docs/add-remove-network-tags#adding_and_removing_tags)
+#### Open firewall
+
+Finally if your satisfied with your content, you can open up port 80 on your GCE vm to start serving the site with the [following `gcloud` command](https://cloud.google.com/vpc/docs/add-remove-network-tags#adding_and_removing_tags)
 
 ```bash
 gcloud config set compute/zone {zone}
 gcloud compute instances add-tags {vm-name} --tags "http-server"
 ```
+
 #### Further tasks
-To finish your clearnet site, you will want to
+
+Some other tasks you may want done.
 
 1. Get an SSL cert
 2. Roll out your SSL cert and [move site to port 443](https://redmine.lighttpd.net/projects/1/wiki/HowToRedirectHttpToHttps)
+3. Build latest version of lighttpd
+4. Setup reverse proxy to serve up other services through lighttpd.
 
-<!-- todo: spell out HW-->
+<!-- 
+todo: 
+spell out HW
+do 
+   '/freesite_key' -> 127.0.0.1:8888/freesite_key
+   '/ZeroNet_key' -> 127.0.0.1:????/ZeroNet_key
+-->
