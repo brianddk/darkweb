@@ -9,12 +9,7 @@ function mk_env() {
 }
 
 function bld_docroot() {
-   #sudo groupadd www-i2psvc
-   #sudo usermod -a -G www-i2psvc www-data
-   #sudo usermod -a -G www-i2psvc i2psvc
    umask 0027
-   #sudo chown root:www-i2psvc ${docroot}/..
-   #sudo chown root:www-i2psvc ${docroot}
    sudo bundle exec jekyll build -d ${docroot}
    sudo chown -R root:www-data $docroot
    sudo chmod -R g+r,o-rwx,g-w $docroot
@@ -58,7 +53,7 @@ function mk_sitemap() {
          echo "<url><loc>${proto}//${host}${uri}</loc></url>" >> "$sm"
          if [ "$host" != "$ghphost" ]; then
             for rd in $redirects; do
-               echo "<url><loc>http://${host}/${rd}${uri}</loc></url>" >> "$sm"
+               echo "<url><loc>${proto}//${host}/${rd}${uri}</loc></url>" >> "$sm"
             done
          fi
       done
@@ -72,19 +67,19 @@ function update_wa() {
 }
 
 function ping_seo() {
-   for uri in $(grep "^Sitemap:" robots.txt | awk '{print $2}'); do
+   for uri in $(grep "^Sitemap:" robots.txt |egrep -v "onion/|i2p/" |awk '{print $2}'); do
       for engine in "http://google.com/ping" "http://www.bing.com/ping"; do
          curl -vv -s -o /dev/null --data-urlencode "sitemap=$uri" -G "$engine" 2>&1 | egrep "^> GET|^> Host:|^< HTTP"
       done
    done
 }
 echo "#### Building Sitemap"
-#mk_sitemap
+mk_sitemap
 echo "#### Building Main"
 bld_docroot
 echo "#### Pinging SEO"
-ping_seo
+#ping_seo
 echo "#### Uploading Freesite"
 #upld_freesite
 echo "#### Updating Web-Archive"
-update_wa
+#update_wa
