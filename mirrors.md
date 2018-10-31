@@ -44,63 +44,64 @@ While on clearnet, it is usefull to be able to verify if the hidden services are
 
 #### Onion v2 Instance
 
-These are the instances that reference the Onion (version 2) hidden service hosted on my VM.  If the VM goes down, the live onions will go down.  The archive links will survive.
+These are the instances that reference the Onion (version 2) hidden service hosted on my VM.  If the VM goes down, the live onions will go down.  The archives and google cache will survive.
 
 * [bithxedusrw236ji.onion]( http://bithxedusrw236ji.onion/) - Live onion (requires Tor)
 * [bithxedusrw236ji.onion]( https://web.archive.org/web/2/http://dwblog.ddns.net/onion.v2/) - Onion v2 Mnemonic Web-Archive
 * [bithxedusrw236ji.onion]( https://web.archive.org/web/2/http://dwblog.ddns.net/bithxedusrw236ji.onion/) - Onion v2 Reverse Proxy Web-Archive
+* [bithxedusrw236ji.onion]( https://www.google.com/search?q=bithxedusrw236ji+OR+inurl:bithxedusrw236ji) - Google Cache
 
 ##### **Onion.ws Inproxy**
 
-The [Onion.ws](http://onion.ws/) Tor2Web inproxy will bridge traffic from clearnet to Tor.  If either the onion.ws server or my VM goes down, then the live link won't be available.  The archives and google cache will survive.
+The [Onion.ws](http://onion.ws/) Tor2Web inproxy will bridge traffic from clearnet to Tor.  If either the onion.ws server or my VM goes down, then the live link won't be available.  The archive links will survive.
 
-* [bithxedusrw236ji.onion]( http://bithxedusrw236ji.onion.ws/) - Onion.ws Live (clearnet)
-* [bithxedusrw236ji.onion]( https://web.archive.org/web/2/http://bithxedusrw236ji.onion.ws/) - Onion.ws Web-Archive
-* [bithxedusrw236ji.onion]( https://www.google.com/search?q=site:bithxedusrw236ji.onion.ws+inurl:bithxedusrw236ji.onion.ws) - Onion.ws Google Cache
+* [bithxedusrw236ji.onion.ws]( http://bithxedusrw236ji.onion.ws/) - Onion.ws Live (clearnet)
+* [bithxedusrw236ji.onion.ws]( https://web.archive.org/web/2/http://bithxedusrw236ji.onion.ws/) - Onion.ws Web-Archive
 
 ##### **Onion.link Inproxy**
 
-The [Onion.link](http://onion.link/) Tor2Web inproxy will bridge traffic from clearnet to Tor.  If either the onion.link server or my VM goes down, then the live link won't be available.  The archives and google cache will survive.
+The [Onion.link](http://onion.link/) Tor2Web inproxy will bridge traffic from clearnet to Tor.  If either the onion.link server or my VM goes down, then the live link won't be available.  The archive links will survive.
 
-* [bithxedusrw236ji.onion]( http://bithxedusrw236ji.onion.link/) - Onion.link Live (clearnet)
-* [bithxedusrw236ji.onion]( https://web.archive.org/web/2/http://bithxedusrw236ji.onion.link/) - Onion.link Web-Archive
-* [bithxedusrw236ji.onion]( https://www.google.com/search?q=site:bithxedusrw236ji.onion.link+inurl:bithxedusrw236ji.onion.link) - Onion.link Google Cache
+* [bithxedusrw236ji.onion.link]( http://bithxedusrw236ji.onion.link/) - Onion.link Live (clearnet)
+* [bithxedusrw236ji.onion.link]( https://web.archive.org/web/2/http://bithxedusrw236ji.onion.link/) - Onion.link Web-Archive
 
 ##### **Onion.sh Inproxy**
 
 The [Onion.sh](https://onion.sh/) Tor2Web inproxy will bridge traffic from clearnet to Tor.  If either the onion.sh server or my VM goes down, then the link won't be available.  Be aware that this inproxy uses SNI TLS which some browsers do not support.
 
-* [bithxedusrw236ji.onion]( https://bithxedusrw236ji.onion.sh/) - Onion.sh Inproxy
+* [bithxedusrw236ji.onion.sh]( https://bithxedusrw236ji.onion.sh/) - Onion.sh Inproxy
 
 #### Onion v3 Instance
 
-These are the instances that reference the Onion (version 3) hidden service hosted on my VM.  If the VM goes down, the live onions will go down.  The archive links will survive.
+These are the instances that reference the Onion (version 3) hidden service hosted on my VM.  If the VM goes down, the live onions will go down.  The archives and google cache will survive.
 
 * [zgeajoabenj2nac6k5cei5qy62iu5yun5gm2vjnxy65r3p3amzykwxqd.onion]( http://zgeajoabenj2nac6k5cei5qy62iu5yun5gm2vjnxy65r3p3amzykwxqd.onion/) - Live onion (requires Tor)
 * [zgeajoabenj2nac6k5cei5qy62iu5yun5gm2vjnxy65r3p3amzykwxqd.onion]( https://web.archive.org/web/2/http://dwblog.ddns.net/onion.v3/) - v3 Mnemonic Web-Arch
 * [zgeajoabenj2nac6k5cei5qy62iu5yun5gm2vjnxy65r3p3amzykwxqd.onion]( https://web.archive.org/web/2/http://dwblog.ddns.net/zgeajoabenj2nac6k5cei5qy62iu5yun5gm2vjnxy65r3p3amzykwxqd.onion/) - v3 Rev-Proxy Web-Arch
+* [zgeajoabenj2nac6k5cei5qy62iu5yun5gm2vjnxy65r3p3amzykwxqd.onion]( https://www.google.com/search?q=zgeajoabenj2nac6k5cei5qy62iu5yun5gm2vjnxy65r3p3amzykwxqd+OR+inurl:zgeajoabenj2nac6k5cei5qy62iu5yun5gm2vjnxy65r3p3amzykwxqd) - Google Cache
 
 ##### **Onion.ws Inproxy**
 
-The [Onion.ws](http://onion.ws/) Tor2Web inproxy will bridge traffic from clearnet to Tor.  If either the onion.ws server or my VM goes down, then the live link won't be available.  The archives and google cache will survive.
+The [Onion.ws](http://onion.ws/) Tor2Web inproxy will bridge traffic from clearnet to Tor.  If either the onion.ws server or my VM goes down, then the live link won't be available.  The archive links will survive.
 
-* [zgeajoabenj2nac6k5cei5qy62iu5yun5gm2vjnxy65r3p3amzykwxqd.onion]( http://zgeajoabenj2nac6k5cei5qy62iu5yun5gm2vjnxy65r3p3amzykwxqd.onion.ws/) - Onion.ws Inproxy
-* [zgeajoabenj2nac6k5cei5qy62iu5yun5gm2vjnxy65r3p3amzykwxqd.onion]( https://web.archive.org/web/2/http://zgeajoabenj2nac6k5cei5qy62iu5yun5gm2vjnxy65r3p3amzykwxqd.onion.ws/) - Onion.ws Web-Archive
+* [zgeajoabenj2nac6k5cei5qy62iu5yun5gm2vjnxy65r3p3amzykwxqd.onion.ws]( http://zgeajoabenj2nac6k5cei5qy62iu5yun5gm2vjnxy65r3p3amzykwxqd.onion.ws/) - Onion.ws Inproxy
+* [zgeajoabenj2nac6k5cei5qy62iu5yun5gm2vjnxy65r3p3amzykwxqd.onion.ws]( https://web.archive.org/web/2/http://zgeajoabenj2nac6k5cei5qy62iu5yun5gm2vjnxy65r3p3amzykwxqd.onion.ws/) - Onion.ws Web-Archive
 
 #### I2P eepsite Instance
 
-These are the instances that reference the I2P (eepsite) hidden service hosted on my VM.  If the VM goes down, the live eepsite will go down.  The archive links will survive.
+These are the instances that reference the I2P (eepsite) hidden service hosted on my VM.  If the VM goes down, the live eepsite will go down.  The archives and google cache will survive.
 
 * [lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma.b32.i2p]( http://lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma.b32.i2p/) - Live b32 eepsite (requires I2P)
 * [lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma.b32.i2p]( https://web.archive.org/web/2/http://dwblog.ddns.net/i2p.long/) - I2P b32 Mnemonic Web-Arch
 * [lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma.b32.i2p]( https://web.archive.org/web/2/http://dwblog.ddns.net/lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma.b32.i2p/) - I2P b32 Rev-Proxy Web-Arch
+* [lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma.b32.i2p]( https://www.google.com/search?q=lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma+OR+inurl:lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma) - Google Cache
 
 ##### **I2P.xyz Inproxy**
 
-The [I2P.xyz](http://i2p.xyz/) I2P Inproxy (Russian) will bridge traffic from clearnet to I2P.  If either the i2p.xyz server or my VM goes down, then the live link won't be available.  The archives and google cache will survive.
+The [I2P.xyz](http://i2p.xyz/) I2P Inproxy (Russian) will bridge traffic from clearnet to I2P.  If either the i2p.xyz server or my VM goes down, then the live link won't be available.  The archive links will survive.
 
-* [lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma.b32.i2p]( http://lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma.b32.i2p.xyz/) - I2P.xyz Inproxy
-* [lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma.b32.i2p]( https://web.archive.org/web/2/http://lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma.b32.i2p.xyz/) - I2P.xyz Web-Archive
+* [lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma.b32.i2p.xyz]( http://lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma.b32.i2p.xyz/) - I2P.xyz Inproxy
+* [lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma.b32.i2p.xyz]( https://web.archive.org/web/2/http://lggg5usmc5jrle6pxjb7zysnorlp6djzu7ne36geigbcigwfugma.b32.i2p.xyz/) - I2P.xyz Web-Archive
 
 ##### **I2P Short Form**
 
