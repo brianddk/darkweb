@@ -118,7 +118,7 @@ function bld_docroot() {
 
 function upld_freesite() {
    source <(mk_env)
-   echo > _freenet.yml "baseurl: \"/USK@${uri}/${path}/$(( edition + 1 ))\""
+   echo > _freenet.yml "baseurl: \"/freenet:USK@${uri}/${path}/$(( edition + 1 ))\""
    bundle exec jekyll build --config _config.yml,_freenet.yml
    java -cp ${jsite_jar} \
       "de.todesbaum.jsite.main.CLI" \

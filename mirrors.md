@@ -115,6 +115,6 @@ These are the instances that reference the I2P (eepsite) short form hidden servi
 
 These are the instances that reference the Freenet (freesite) site.  Freesites are distributed across the network as soon as they are inserted.  The freesite will persist even if my VM goes down, so long as it is routinely accessed by someone.  Sites that fall into disuse are eventually garbage collected.
 
-* [USK@UHw2...AQACAAE/dwblog/4/]( http://127.0.0.1:8888/USK@UHw2~SAEv7EAmfhb4SO6EVLWRo6NHbKUte-BJ72isCg,v6y94~qHCRvfKdM-90dxC2rHSvykgyEYoZLp45a26NU,AQACAAE/dwblog/4/) - Live Freenet (requires freenet software)
-* [USK@UHw2...AQACAAE/dwblog/4/]( https://web.archive.org/web/2/http://dwblog.ddns.net/freenet/) - Freenet Mnemonic Web-Archive
-* [USK@UHw2...AQACAAE/dwblog/4/]( https://web.archive.org/web/2/http://dwblog.ddns.net/USK@UHw2~SAEv7EAmfhb4SO6EVLWRo6NHbKUte-BJ72isCg,v6y94~qHCRvfKdM-90dxC2rHSvykgyEYoZLp45a26NU,AQACAAE/dwblog/4/) - Freenet Reverse Proxy Web-Archive
+* [USK@UHw2...AQACAAE/dwblog/#/]( http://127.0.0.1:8888{{ site.freeurl }}/) - Live Freenet (requires freenet software)
+* [USK@UHw2...AQACAAE/dwblog/#/]( https://web.archive.org/web/2/http://dwblog.ddns.net/freenet/) - Freenet Mnemonic Web-Archive
+* [USK@UHw2...AQACAAE/dwblog/#/]( https://web.archive.org/web/2/http://dwblog.ddns.net{{ site.freeurl }}/) - Freenet Reverse Proxy Web-Archive
