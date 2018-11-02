@@ -1,5 +1,6 @@
 #!/bin/bash
-docroot="/var/www/html"
+eval docroot="~www-data/html"
+eval i2proot="~i2psvc"
 eval jsite_conf="~freenet/jSite.conf"
 eval jsite_jar="~freenet/jSite-12-jSite-0.13-jar-with-dependencies.jar"
 
@@ -10,21 +11,32 @@ function mk_env() {
 
 function bld_docroot() {
    umask 0027
-   sudo bundle exec jekyll build -d ${docroot}
+   sudo bundle exec jekyll build --destination ${docroot} --config _freenet.yml,_config.yml
    sudo chown -R root:www-data $docroot
    sudo chmod -R g+r,o-rwx,g-w $docroot
-   sudo ln -s /var/lib/i2p/i2p-config/published.txt /var/www/html/hosts.txt
+   sudo ln -s "${i2proot}/i2p-config/published.txt" "${docroot}/hosts.txt"
    sudo chown i2psvc:www-data ${docroot}/hosts.txt
 }
 
 function upld_freesite() {
    source <(mk_env)
-   echo > _freenet.yml "baseurl: \"/USK@${uri}/${path}/$(( edition + 1 ))\""
+   freecfg="80-freenet.conf"
+   (( edition++ ))
+   freeroot="/freenet:USK@${uri}/${path}"
+   baseurl="baseurl: \"${freeroot}/${edition}\""
+   freeurl="${baseurl/baseurl:/freeurl:}"
+   echo -e > _freenet.yml "${baseurl}\n${freeurl}"
    bundle exec jekyll build --config _config.yml,_freenet.yml
    sudo java -cp ${jsite_jar} \
       "de.todesbaum.jsite.main.CLI" \
       "--config-file=${jsite_conf}" \
       "--project=${name}"
+   printf "%s\n%s\n" \
+          "var.freeRoot    = \"$freeroot\"" \
+          "var.freeEdition = \"$edition\""  \
+          | > /dev/null sudo tee "/etc/lighttpd/conf-available/$freecfg"
+   sudo ln -fs "../conf-available/$freecfg" "/etc/lighttpd/conf-enabled/$freecfg"
+   sudo chmod o+r "/etc/lighttpd/conf-available/$freecfg"
 }
 
 IFS='' read -r -d '' header <<'EOF'
@@ -32,19 +44,12 @@ IFS='' read -r -d '' header <<'EOF'
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 EOF
 
-function get_redirects() {
-   sorts=$(sudo grep "\"\^/[^\n].*[$]\"" /etc/lighttpd/lighttpd.conf | sed 's#"\^/##g;s#\$"##g' | awk '{print $1}')
-   longs=$(sudo grep -v "Port" /etc/lighttpd/lighttpd.conf | egrep "^var\." | sed 's/.*=//g;s/ //g;s/"//g')
-   longs=$(sed 's#\(^USK.*/\)#\14#' <<< "$longs")
-   redirects=$(echo -en "${sorts}\n${longs}" | tr "\n" "\n")
-}
-
 function mk_sitemap() {
-   get_redirects
-   bundle exec jekyll build
-   uris=$(find _site -iname "*.html" | sed "s#/index.html#/#g;s#_site##g")
+   redirects=$(sudo grep "\"\^/[^\n].*[$]\"" /etc/lighttpd/lighttpd.conf | sed 's#"\^/##g;s#\$"##g' | awk '{print $1}')
+   bundle exec jekyll build --config _freenet.yml,_config.yml
+   #uris=$(find _site -iname "*.html" | sed "s#/index.html#/#g;s#_site##g")
+   uris=$(find _site -iname "*.html" | sed "s#/index.html#/#g;s#_site##g" | egrep -v "^/google[0-9a-z.]*html$")
    uris=$(tr "\n" "\n" <<< "$uris")
-   #selfhost="$(sudo noip2 -S 2>&1 | grep host | awk '{print $2}')"
    ghphost="dwghp.ddns.net"
    for line in $(egrep "^Sitemap:" robots.txt | awk '{print $2}'); do
       IFS='/' read -r proto null host sm null <<< "$line"
@@ -73,13 +78,15 @@ function ping_seo() {
       done
    done
 }
+echo "#### Uploading Freesite"
+#upld_freesite
 echo "#### Building Sitemap"
 mk_sitemap
 echo "#### Building Main"
 bld_docroot
+echo "#### Restarting Web-Server"
+sudo systemctl restart lighttpd
 echo "#### Pinging SEO"
 #ping_seo
-echo "#### Uploading Freesite"
-#upld_freesite
 echo "#### Updating Web-Archive"
 #update_wa
