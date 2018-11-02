@@ -11,7 +11,7 @@ function mk_env() {
 
 function bld_docroot() {
    umask 0027
-   sudo bundle exec jekyll build --destination ${docroot} --config _freenet.yml,_config.yml
+   sudo bundle exec jekyll build --destination ${docroot}
    sudo chown -R root:www-data $docroot
    sudo chmod -R g+r,o-rwx,g-w $docroot
    sudo ln -s "${i2proot}/i2p-config/published.txt" "${docroot}/hosts.txt"
@@ -25,7 +25,8 @@ function upld_freesite() {
    freeroot="/freenet:USK@${uri}/${path}"
    baseurl="baseurl: \"${freeroot}/${edition}\""
    freeurl="${baseurl/baseurl:/freeurl:}"
-   echo -e > _freenet.yml "${baseurl}\n${freeurl}"
+   echo > _freenet.yml "${baseurl}"
+   sed -i "1s#^#${freeurl}\n#;s#\nfreeurl:.*##" _config.yml
    bundle exec jekyll build --config _config.yml,_freenet.yml
    sudo java -cp ${jsite_jar} \
       "de.todesbaum.jsite.main.CLI" \
@@ -46,8 +47,7 @@ EOF
 
 function mk_sitemap() {
    redirects=$(sudo grep "\"\^/[^\n].*[$]\"" /etc/lighttpd/lighttpd.conf | sed 's#"\^/##g;s#\$"##g' | awk '{print $1}')
-   bundle exec jekyll build --config _freenet.yml,_config.yml
-   #uris=$(find _site -iname "*.html" | sed "s#/index.html#/#g;s#_site##g")
+   bundle exec jekyll build
    uris=$(find _site -iname "*.html" | sed "s#/index.html#/#g;s#_site##g" | egrep -v "^/google[0-9a-z.]*html$")
    uris=$(tr "\n" "\n" <<< "$uris")
    ghphost="dwghp.ddns.net"
@@ -87,6 +87,6 @@ bld_docroot
 echo "#### Restarting Web-Server"
 sudo systemctl restart lighttpd
 echo "#### Pinging SEO"
-#ping_seo
+ping_seo
 echo "#### Updating Web-Archive"
 #update_wa
