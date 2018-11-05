@@ -2,6 +2,7 @@
 3. Document the lighttpd reverse-proxies employed to make the redirects work
 4. Document stackdriver logic to use redirects to provide clearnet uptime monitoring of the hidden services
 5. Document basic SEO to get onions listed on Ahima and clearnet listed on google / bing / ddg
+5. Escelate ticket on billing for GCE
 
 ##### Done
 * Add robots.txt file to the github.io page for your site
