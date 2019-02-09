@@ -32,9 +32,10 @@ function upld_freesite() {
       "de.todesbaum.jsite.main.CLI" \
       "--config-file=${jsite_conf}" \
       "--project=${name}"
-   printf "%s\n%s\n" \
-          "var.freeRoot    = \"$freeroot\"" \
-          "var.freeEdition = \"$edition\""  \
+   printf "%s\n%s\n%s\n" \
+          "var.freeRoot      = \"${freeroot}\"" \
+          "var.freeRootShort = \"${freeroot/freenet:/}\"" \
+          "var.freeEdition   = \"${edition}\""  \
           | > /dev/null sudo tee "/etc/lighttpd/conf-available/$freecfg"
    sudo ln -fs "../conf-available/$freecfg" "/etc/lighttpd/conf-enabled/$freecfg"
    sudo chmod o+r "/etc/lighttpd/conf-available/$freecfg"
@@ -81,12 +82,14 @@ function ping_seo() {
 echo "#### Uploading Freesite"
 #upld_freesite
 echo "#### Building Sitemap"
-mk_sitemap
+#mk_sitemap
 echo "#### Building Main"
 bld_docroot
 echo "#### Restarting Web-Server"
 sudo systemctl restart lighttpd
+echo "#### Building SEO Stats"
+#sudo /etc/cron.hourly/seo-status
 echo "#### Pinging SEO"
-ping_seo
+#ping_seo
 echo "#### Updating Web-Archive"
 #update_wa
