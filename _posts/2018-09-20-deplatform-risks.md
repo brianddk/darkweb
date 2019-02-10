@@ -5,6 +5,11 @@ date:   2018-09-20 11:30:00 -0500
 hidden: true
 # categories: jekyll update
 ---
+  <!--
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+  -->
 ## TLDR
 
 Consider mirroring sites to a darkweb services such as Tor, I2P or Freenet to reduce de-platforming risk.  Might consider self-hosting crypto POS services to further decentralize funding.  This would leave the primary exposures simply at the hosting services / ISP.  This exposure is unavoidable unless hosting on a service such as Freenet.
@@ -131,3 +136,18 @@ Some darknet services such as Freenet decentralize hosting as well.  All nodes "
 Darkweb SSL is a bit of an odd subject.  There are entire books on the  [subject](https://books.google.com/books?id=RzdmDwAAQBAJ&printsec=frontcover#v=onepage&q&f=false).  Keeping in mind that the main purpose of SSL is to prove who you are, and much of the point of darkweb is to hide who you are, many of these designs seem to work against each other.  With this in mind, there are entrepreneurs that are trying offer good SSL CA services for Tor or I2P.  This simplifies site design since many of the POS and commerce web-development packages assume and require SSL for their communications.
 
 Suffice to say that Darknet SSL does exist, but it is likey beyond the scope of this post or message.
+
+<pre>
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+Comment: test
+
+iQEcBAEBCAAGBQJcYGBwAAoJEINfBDOm1RhgAfcH/05k4Y3vd418DJqpurbiNGKp
+RFtcZUAj/oBWpYL8yr0eeBBIExRPjz1cm0tiLs6OjG/EdGnsHSDYc0ZTNMgQUWkI
+TblAEJVxSO6CWHIVgzn0iIi3np3XlBaIR5YmsfEwHx97O30GyLSoXGMhxOXNXtC9
+6KA+wrNgy2SjkJrPuQ9IuVSkl6bpcldc3BlLGVXdwZn3cFiGb9Qx1eX2N6d59QAa
+NY9zyN+1wmLBe6pBh0q2Fq+rn+dEiNwc+7oEN2sBQr/xv8QWIP3QZSHMQXR2OC/8
+H5BKDyy3l3H0OTM1G4vCgnIGSx9N2mqX8hTI/cZRtECXDv3C5qUXUMvGmeodT/Y=
+=pDOM
+-----END PGP SIGNATURE-----
+</pre>
