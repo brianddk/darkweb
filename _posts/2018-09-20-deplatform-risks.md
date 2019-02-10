@@ -5,11 +5,13 @@ date:   2018-09-20 11:30:00 -0500
 hidden: true
 # categories: jekyll update
 ---
-  <!--
+
+<!--
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA256
 
-  -->
+-->
+
 ## TLDR
 
 Consider mirroring sites to a darkweb services such as Tor, I2P or Freenet to reduce de-platforming risk.  Might consider self-hosting crypto POS services to further decentralize funding.  This would leave the primary exposures simply at the hosting services / ISP.  This exposure is unavoidable unless hosting on a service such as Freenet.
