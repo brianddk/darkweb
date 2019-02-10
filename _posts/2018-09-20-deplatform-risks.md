@@ -6,11 +6,11 @@ hidden: true
 # categories: jekyll update
 ---
 
-<!--
+```
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA256
 
--->
+```
 
 ## TLDR
 
@@ -139,7 +139,7 @@ Darkweb SSL is a bit of an odd subject.  There are entire books on the  [subject
 
 Suffice to say that Darknet SSL does exist, but it is likey beyond the scope of this post or message.
 
-<pre>
+```
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v2
 Comment: test
@@ -152,4 +152,4 @@ NY9zyN+1wmLBe6pBh0q2Fq+rn+dEiNwc+7oEN2sBQr/xv8QWIP3QZSHMQXR2OC/8
 H5BKDyy3l3H0OTM1G4vCgnIGSx9N2mqX8hTI/cZRtECXDv3C5qUXUMvGmeodT/Y=
 =pDOM
 -----END PGP SIGNATURE-----
-</pre>
+```
