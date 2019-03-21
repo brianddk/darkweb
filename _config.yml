@@ -9,6 +9,8 @@ freeurl: "/freenet:USK@UHw2~SAEv7EAmfhb4SO6EVLWRo6NHbKUte-BJ72isCg,v6y94~qHCRvfK
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
+# Updated DNS record to be a CNAME to repo.
+
 # Site settings
 # These are used to personalize your new site. If you look in the HTML files,
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
