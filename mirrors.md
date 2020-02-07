@@ -31,6 +31,7 @@ Since most of the Hidden have hashes as names, It is convenient to have these mn
 * [/i2p.short]( /i2p.short/) - I2P Short Form Name
 * [/i2p.long]( /i2p.long/) - I2P Long Form Name
 * [/freenet]( /freenet/) - Freenet
+* [/live]( /live/) - Absolute URL redirect to the GCE VM Instance
 
 #### Expanded Reverse Proxies
 
