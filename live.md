@@ -1,5 +1,5 @@
 ---
-layout: redirected
+layout: redirect
 sitemap: false
 permalink: /live/
 redirect_to:  https://dwghp.ddns.net/
